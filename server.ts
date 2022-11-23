@@ -25,6 +25,9 @@ async function createCalendar(isuId: number) {
 }
 
 export const app = express()
+app.all('/', (req, res) => {
+  res.json({hello: 'world'})
+})
 app.get('/:id', (req, res) => {
   const isuId = Number(req.params.id)
   if (!isuId) {
