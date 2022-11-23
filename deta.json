@@ -1,0 +1,5 @@
+{
+  "name": "itmo-ical",
+  "description": "Synchronize your ITMO timetable with calendars",
+  "runtime": "nodejs14.x"
+}
