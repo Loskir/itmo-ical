@@ -10,8 +10,8 @@ async function createCalendar(isuId: number) {
   const lessons = await getTimetable(isuId, start, start.plus({weeks: 2}))
   for (const lesson of lessons) {
     calendar.createEvent({
-      start: new Date(lesson.timeStart),
-      end: new Date(lesson.timeEnd),
+      start: lesson.timeStart,
+      end: lesson.timeEnd,
       summary: `${lesson.subjectName} · ${lesson.subjectKind}`,
       description: `Преподаватель: ${lesson.teacher}`,
       ...lesson.place && {

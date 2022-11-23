@@ -29,7 +29,14 @@ export const getTimetable = async (isuId: number, startDate: Date | DateTime, en
     responseType: 'json',
   }).then((v) => {
     console.log(`getTimetable took ${Date.now() - start}ms, ${url}`)
-    return v.body
+    return v.body.map((lesson) => ({
+      timeStart: DateTime.fromJSDate(new Date(lesson.timeStart)).setZone('Europe/Moscow', {keepLocalTime: true}).toJSDate(),
+      timeEnd: DateTime.fromJSDate(new Date(lesson.timeEnd)).setZone('Europe/Moscow', {keepLocalTime: true}).toJSDate(),
+      place: lesson.place,
+      subjectName: lesson.subjectName,
+      subjectKind: lesson.subjectKind,
+      teacher: lesson.teacher,
+    }))
   }).catch((error) => {
     if (error instanceof HTTPError) {
       console.log(error.response.statusCode, error.response.body)
