@@ -55,7 +55,7 @@ services:
 ### Через docker
 
 ```shell
-docker run -p 3000:3000 -e PORT=3000 -d ghcr.io/loskir/hse-ical:master 
+docker run -p 3000:3000 -e PORT=3000 -d ghcr.io/loskir/itmo-ical:master 
 ```
 
 ### Через node
