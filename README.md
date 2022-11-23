@@ -16,7 +16,7 @@
 version: '3.7'
 services:
   hse_ical:
-    image: ghcr.io/loskir/hse-ical:master
+    image: ghcr.io/loskir/itmo-ical:master
     restart: always
     environment:
       PORT: 3000
